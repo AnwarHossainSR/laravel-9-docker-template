@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <h3 align="center">Docker Laravel MySQL Nginx Starter</h3>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  <p align="center">
+    Project Starter For Web Application Development with Laravel, MySQL, Nginx, and Docker.
+    <br />
+  </p>
+</div>
 
-## About Laravel
+<div align="center">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  <a href="">[![Contributors][contributors-shield]][contributors-url]</a>
+  <a href="">[![Stargazers][stars-shield]][stars-url]</a>
+  <a href="">[![Issues][issues-shield]][issues-url]</a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<!-- ABOUT THE PROJECT -->
+## Features
 
-## Learning Laravel
+* [Docker](https://www.docker.com/)
+* [Dockerfile with Alpine](https://hub.docker.com/_/alpine)
+* [Nginx](https://www.nginx.com)
+* [Laravel 9](https://laravel.com/)
+* [MySQL 8](https://www.mysql.com/)
+* [PHP 8](https://nodejs.org)
+* [Node 16](https://nodejs.org)
+* [NPM 8](https://www.npmjs.com)
+* [PHP Prettier](https://github.com/prettier/plugin-php)
+* [Github Action Issue Branch](https://github.com/apps/create-issue-branch)
+* [Github Action Check Code Format Using Prettier](https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/actions)
+* [Github Action Issue Autolink On Pull Request](https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/actions)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<!-- GETTING STARTED -->
+## Getting Started
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Follow the instruction below to setting up your project.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Prerequisites
 
-## Laravel Sponsors
+- Download and Install [Docker](https://docs.docker.com/engine/install/)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Clone This Template For Your Project
 
-### Premium Partners
+- By Clicking Use This Template Button or You can Click [Here](https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/generate)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![image](https://user-images.githubusercontent.com/49280352/156305925-c7e3f2f2-c458-4b0b-ad1c-32fcaec50e1d.png)
 
-## Contributing
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![preview-docker-laravel](https://user-images.githubusercontent.com/49280352/131224609-401fcd2b-a815-49f2-8164-b6d9b77df87c.gif)
 
-## Code of Conduct
+- Create .env file for laravel environment from .env.example on src folder
+- Run command ```docker-compose build``` on your terminal
+- Run command ```docker-compose up -d``` on your terminal
+- Run command ```composer install``` on your terminal after went into php container on docker
+- Run command ```docker exec -it php /bin/sh``` on your terminal
+- Run command ```chmod -R 777 storage``` on your terminal after went into php container on docker
+- If app:key still empty on .env run ```php artisan key:generate``` on your terminal after went into php container on docker
+- To run artisan command like migrate, etc. go to php container using ```docker exec -it php /bin/sh```
+- Go to http://localhost:8001 or any port you set to open laravel
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Note: if you got a permission error when running docker, try running it as an admin or use sudo in linux**
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/ishaqadhel/docker-laravel-mysql-nginx-starter.svg?style=for-the-badge
+[contributors-url]: https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ishaqadhel/docker-laravel-mysql-nginx-starter.svg?style=for-the-badge
+[forks-url]: https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/network/members
+[stars-shield]: https://img.shields.io/github/stars/ishaqadhel/docker-laravel-mysql-nginx-starter.svg?style=for-the-badge
+[stars-url]: https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ishaqadhel/docker-laravel-mysql-nginx-starter.svg?style=for-the-badge
+[issues-url]: https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/issues
+[license-shield]: https://img.shields.io/github/license/ishaqadhel/docker-laravel-mysql-nginx-starter.svg?style=for-the-badge
+[license-url]: https://github.com/ishaqadhel/docker-laravel-mysql-nginx-starter/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png

@@ -1,39 +1,19 @@
-FROM php:8.1.2-fpm
+FROM php:8.0-fpm-alpine
 
-# Arguments
-ARG user=carlos
-ARG uid=1000
+WORKDIR /var/www/app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
+RUN apk update && apk add \
     curl \
     libpng-dev \
-    libonig-dev \
     libxml2-dev \
     zip \
     unzip
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN docker-php-ext-install pdo pdo_mysql \
+    && apk --no-cache add nodejs npm
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-# Get latest Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+USER root
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-
-# Install redis
-RUN pecl install -o -f redis \
-    &&  rm -rf /tmp/pear \
-    &&  docker-php-ext-enable redis
-
-# Set working directory
-WORKDIR /var/www
-
-USER $user
+RUN chmod 777 -R /var/www/app
